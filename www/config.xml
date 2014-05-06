@@ -2,10 +2,10 @@
 <widget id="com.bootcamp.wineapp" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>WineApp</name>
     <description>
-        Wine manager application
+        An app to keep track of bottles of wine
     </description>
-    <author email="arsood@gmail.com" href="http://bavc.org">
-        Arun Sood
+    <author email="dev@cordova.apache.org" href="http://cordova.io">
+        Scot Campbell
     </author>
     <content src="index.html" />
     <access origin="*" />
