@@ -1,7 +1,14 @@
-.margin-top-10 {
-	margin-top:10px;
+#map-canvas {
+    height: 375px;
+    width:  300px;    
+    margin: 0px;
+    padding: 0px
+  }
+
+   /*       100%;  300px;       */
+
+.btn50 {
+	width: 50%;
+	float: left; 
 }
 
-.bold {
-	font-weight:bold;
-}

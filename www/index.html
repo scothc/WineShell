@@ -1,127 +1,136 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-	<title>jQuery Mobile Testing</title>
-	<link rel="stylesheet" href="libraries/jquery-mobile/jquery.mobile-1.4.2.css" />
-	<link rel="stylesheet" href="css/custom.css" />
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+  <title>WhereIsFriend-app</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="libraries/jquery-mobile/jquery.mobile-1.4.2.css">
+  <link rel="stylesheet" href="css/custom.css">
+  <!--
+    Include the maps javascript with sensor=true because this code is using a
+    sensor (a GPS locator) to determine the user's location.
+    See: https://developers.google.com/maps/documentation/javascript/tutorial#Loading_the_Maps_API
+    -->
+  <!--  <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=true"></script>     -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCXYI981mBAwiB2SkHYhGJZnPxkpRY1Bpw&sensor=true&language=en"></script>
 </head>
-
 <body>
 
-<!-- <div data-role="page" id="">
-	<div data-role="header">
-	</div>
-	<div data-role="content">
-	</div>
-	<div data-role="footer">
-	</div>
-</div> -->
+<!--   <div data-role="page">
+    <div data-role="header">
+    </div>
+    <div data-role="content">
+    </div>
+    <div data-role="footer">
+    </div>
+  </div> -->
 
-<!--Wine List Page-->
-<div data-role="page" id="wine-list">
-	<div data-role="header" data-theme="b">
-		<h2>Wine Manager</h2>
-	</div>
-	<div data-role="content">
-		<ul id="wine-list-items" data-role="listview" data-filter="true">
-			<!--LOADER HERE-->
-		</ul>
-	</div>
-	<div data-role="footer" data-position="fixed">
-		<div data-role="navbar">
-			<ul>
-				<li><a href="#wine-list" data-icon="bullets">Wine List</a></li>
-				<li><a href="#add-wine" data-icon="plus">Add Wine</a></li>
-			</ul>
-		</div>
-	</div>
-</div>
-<!--/Wine List Page-->
+<!--  Index Page  -->                                            <!--  Index Page  -->
+  <div data-role="page" id="login-page">
+    <div data-role="header">
+    </div>
+    <div data-role="content">
+      <form id="form1" >
+        <label> user </label>
+        <input type="text" id="username" name="username">
+        <label> Password </label>
+        <input type="password" id="passwrd" name="passwrd" >
+          
+        <input type="button" value="Login" id="btnLogin">
+        <input type="button" value="New User" id="btnNewUser">
+      </form>   
+    </div>
+    <div data-role="footer">
+    </div>
+  </div>
+<!--  /Index Page  -->
 
-<!--Add Wine Page-->
-<div data-role="page" id="add-wine">
-	<div data-role="header" data-theme="b">
-		<a data-role="button" data-icon="back" data-rel="back" data-theme="a">Back</a>
-		<h2>Add Wine</h2>
-	</div>
-	<div data-role="content">
-		<div class="bold">
-			Wine Name
-		</div>
-		<div class="margin-top-10">
-			<input id="new-wine-name" type="text" placeholder="Name" />
-		</div>
-		<div class="margin-top-10 bold">
-			Country
-		</div>
-		<div class="margin-top-10">
-			<input id="new-wine-country" type="text" placeholder="Country" />
-		</div>
-		<div class="margin-top-10 bold">
-			Region
-		</div>
-		<div class="margin-top-10">
-			<input id="new-wine-region" type="text" placeholder="Region" />
-		</div>
-		<div class="margin-top-10 bold">
-			Grapes
-		</div>
-		<div class="margin-top-10">
-			<input id="new-wine-grapes" type="text" placeholder="Grapes" />
-		</div>
-		<div class="margin-top-10 bold">
-			Year
-		</div>
-		<div class="margin-top-10">
-			<input id="new-wine-year" type="tel" placeholder="Year" />
-		</div>
-		<div class="margin-top-10 bold">
-			Price
-		</div>
-		<div class="margin-top-10">
-			<input id="new-wine-price" type="range" min="0" max="50" value="0" />
-		</div>
-		<div class="margin-top-10 bold">
-			Description
-		</div>
-		<div class="margin-top-10">
-			<textarea id="new-wine-description"></textarea>
-		</div>
-		<div class="margin-top-10">
-			<a data-role="button" id="add-wine-button" data-theme="b">Add Wine</a>
-		</div>
-	</div>
-	<div data-role="footer" data-position="fixed">
-		<div data-role="navbar">
-			<ul>
-				<li><a href="#wine-list" data-icon="bullets">Wine List</a></li>
-				<li><a href="#add-wine" data-icon="plus">Add Wine</a></li>
-			</ul>
-		</div>
-	</div>
-</div>
-<!--/Add Wine Page-->
+<!--  New User Page  -->                                        <!--  New User Page  -->
+  <div data-role="page" id="new-user-page">
+    <div data-role="header">
+    </div>
+    <div data-role="content">
+      <form id="form2" >
+        <label> user </label>
+        <input type="text" id="username-nup" name="username">
+        <label> Password </label>
+        <input type="password" id="passwrd-nup" name="passwrd" >
+        <label> Re-enter the Password </label>
+        <input type="password" id="re-passwrd-nup" name="re-passwrd" >
+          
+        <input type="button" value="Register" id="btnRegister">
+        <input type="button" value="Back" id="btnBack">
+      </form>   
+    </div>
+    <div data-role="footer">
+    </div>
+  </div>
+<!--  /New User Page  -->
 
-<!--Wine List Template-->
-<script type="text/x-template" id="wine-list-template">
-	{{#wines}}
-	<li>
-		<a>
-			<img src="{{ picture }}" />
-			<h3>{{ name }}</h3>
-			<p>{{ description }}</p>
-		</a>
-	</li>
-	{{/wines}}
-</script>
-<!--/Wine List Template-->
+<!--  Map Page  -->                                                    <!--  Map Page  -->
+  <div data-role="page" id="map-page">
 
-<script src="libraries/jquery/jquery.js"></script>
-<script src="libraries/jquery-mobile/jquery.mobile-1.4.2.js"></script>
-<script src="libraries/handlebars/handlebars-v1.3.0.js"></script>
-<script src="js/app.js"></script>
+    <div data-role="header" data-theme="a">
+    </div>
 
+    <div data-role="content">
+      <div id="map-container"><div id="map-canvas"></div> </div>
+      <div id="container50">
+        <div class="btn50">
+          <a data-role="button" id="post">POST</a>
+        </div> 
+        <div class="btn50">
+          <a data-role="button" id="get">GET</a>
+        </div> 
+      </div>
+    </div>
+
+
+    <div data-role="footer" data-position="fixed">
+ <!--     <div data-role="navbar">
+        <ul>
+        <li><a href="#index" data-icon="forbidden">One</a></li>
+        <li><a href="#two" data-icon="refresh" data-transition="slide">Two</a></li>
+        <li><a href="#three" data-icon="star">Three</a></li>
+        <li><a href="#" data-icon="tag">Four</a></li>
+      </ul>
+      </div> -->
+    </div>
+
+  </div>
+<!--  /Map Page  -->
+
+
+<!--  Two Page  -->
+  <div data-role="page" id="two">
+
+    <div data-role="header">
+      <h2>Page Two</h2>
+    </div>
+
+    <div data-role="content">
+    </div>
+
+    <div data-role="footer" data-position="fixed">
+      <div data-role="navbar">
+        <ul>
+        <li><a href="#index" data-icon="forbidden">One</a></li>
+        <li><a href="#two" data-icon="refresh">Two</a></li>
+        <li><a href="#three" data-icon="star">Three</a></li>
+        <li><a href="#" data-icon="tag">Four</a></li>
+      </ul>
+      </div>
+    </div>
+
+  </div>
+<!--  /Two Page  -->
+
+
+
+
+
+  <script src="libraries/jquery/jquery.js"></script>
+  <script src="libraries/jquery-mobile/jquery.mobile-1.4.2.js"></script>
+  <script src="js/app.js"></script>
 </body>
-
 </html>
